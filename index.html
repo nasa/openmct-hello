@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="node_modules/openmct/dist/openmct.js"></script>
+    <script type="text/javascript" src="dist/openmct-hello.js"></script>
+  </head>
+  <body>
+    <script>
+      openmct.install(new HelloPlugin());
+      document.addEventListener('DOMContentLoaded', openmct.start.bind(openmct));
+    </script>
+  </body>
+</html>

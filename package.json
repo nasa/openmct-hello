@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint src",
     "prepare": "./node_modules/.bin/webpack",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/karma start",
     "verify": "npm run lint && npm run test"
   },
   "files": [
@@ -34,6 +34,11 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "html-loader": "^0.5.1",
+    "jasmine-core": "^2.8.0",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-webpack": "^2.0.9",
     "node-sass": "^4.7.2",
     "openmct": "github:nasa/openmct",
     "sass-loader": "^6.0.6",
