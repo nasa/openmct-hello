@@ -9,6 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "verify": "npm run lint && npm run test"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VWoeltjen/openmct-hello.git"
