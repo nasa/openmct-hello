@@ -21,6 +21,12 @@
   "homepage": "https://github.com/VWoeltjen/openmct-hello#readme",
   "devDependencies": {
     "css-loader": "^0.28.7",
+    "eslint": "^4.14.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "html-loader": "^0.5.1",
     "node-sass": "^4.7.2",
     "openmct": "github:nasa/openmct",
