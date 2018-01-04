@@ -4,7 +4,9 @@
   "description": "Hello, world Open MCT plugin example.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "./node_modules/.bin/eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "verify": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
