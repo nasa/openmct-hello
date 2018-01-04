@@ -1,4 +1,5 @@
-var webpack = require('webpack');
+/* eslint-env node */
+
 var path = require('path');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -6,8 +7,8 @@ module.exports = {
   entry: './src/HelloPlugin',
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "openmct-heatmap.js",
-    library: "HeatmapPlugin",
+    filename: "openmct-hello.js",
+    library: "HelloPlugin",
     libraryTarget: "umd"
   },
   module: {
