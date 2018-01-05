@@ -2,6 +2,8 @@
 
 var path = require('path');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var OpenMCTPlugin = require('webpack-openmct-plugin');
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: './src/HelloPlugin',
@@ -43,6 +45,13 @@ module.exports = {
   plugins: [
     new UglifyJsPlugin({
       sourceMap: true
+    }),
+    new OpenMCTPlugin({
+      plugins: ['LocalStorage', 'Espresso', 'MyItems']
+    }),
+    new HtmlWebpackPlugin({  
+      template: 'index.html',
+      inject: 'head'
     })
   ]
 };
