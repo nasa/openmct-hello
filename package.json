@@ -7,7 +7,8 @@
     "lint": "./node_modules/.bin/eslint src",
     "prepare": "./node_modules/.bin/webpack",
     "test": "./node_modules/.bin/karma start",
-    "verify": "npm run lint && npm run test"
+    "verify": "npm run lint && npm run test",
+    "start": "serve ."
   },
   "files": [
     "dist/**/*"
@@ -40,8 +41,8 @@
     "karma-jasmine": "^1.1.1",
     "karma-webpack": "^2.0.9",
     "node-sass": "^4.7.2",
-    "openmct": "github:nasa/openmct",
     "sass-loader": "^6.0.6",
+    "serve": "^6.5.5",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.5",
     "webpack": "^3.10.0"
