@@ -12,4 +12,9 @@ describe('HelloPlugin', function () {
   it('is a function', function () {
     expect(plugin).toEqual(jasmine.any(Function));
   });
+
+  it('listens for start on install', function () {
+    plugin(openmct);
+    expect(openmct.on).toHaveBeenCalledWith('start', jasmine.any(Function));
+  });
 });

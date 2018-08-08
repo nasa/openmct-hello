@@ -4,9 +4,9 @@
   "description": "Hello, world Open MCT plugin example.",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src",
-    "prepare": "./node_modules/.bin/webpack",
-    "test": "./node_modules/.bin/karma start",
+    "lint": "eslint src",
+    "prepare": "webpack",
+    "test": "karma start",
     "verify": "npm run lint && npm run test",
     "start": "serve ."
   },
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VWoeltjen/openmct-hello.git"
+    "url": "git+https://github.com/nasa/openmct-hello.git"
   },
   "keywords": [
     "openmct"
@@ -23,28 +23,23 @@
   "author": "NASA Ames Research Center",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/VWoeltjen/openmct-hello/issues"
+    "url": "https://github.com/nasa/openmct-hello/issues"
   },
-  "homepage": "https://github.com/VWoeltjen/openmct-hello#readme",
+  "homepage": "https://github.com/nasa/openmct-hello#readme",
   "devDependencies": {
-    "css-loader": "^0.28.7",
-    "eslint": "^4.14.0",
-    "eslint-config-standard": "^11.0.0-beta.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "html-loader": "^0.5.1",
-    "jasmine-core": "^2.8.0",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.3.0",
+    "html-loader": "^0.5.5",
+    "jasmine-core": "^3.1.0",
     "karma": "^2.0.5",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-jasmine": "^1.1.1",
-    "karma-webpack": "^2.0.9",
+    "karma-jasmine": "^1.1.2",
+    "karma-webpack": "^3.0.0",
     "node-sass": "^4.9.2",
-    "sass-loader": "^6.0.6",
-    "serve": "^6.5.5",
-    "style-loader": "^0.19.1",
-    "uglifyjs-webpack-plugin": "^1.1.5",
-    "webpack": "^3.10.0"
-  }
+    "sass-loader": "^7.1.0",
+    "serve": "^9.4.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5"
+  },
+  "dependencies": {}
 }
