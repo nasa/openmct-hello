@@ -4,14 +4,10 @@
   "description": "Hello, world Open MCT plugin example.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint src",
-    "prepare": "webpack",
-    "test": "karma start",
-    "verify": "npm run lint && npm run test",
-    "start": "serve ."
+    "start": "http-server . -c-1"
   },
   "files": [
-    "dist/**/*"
+    "src/**/*"
   ],
   "repository": {
     "type": "git",
@@ -27,15 +23,9 @@
   },
   "homepage": "https://github.com/nasa/openmct-hello#readme",
   "devDependencies": {
-    "eslint": "^5.3.0",
-    "jasmine-core": "^3.1.0",
-    "karma": "^2.0.5",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-jasmine": "^1.1.2",
-    "karma-webpack": "^3.0.0",
-    "serve": "^9.4.0",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "http-server": "^0.11.1",
+    "openmct": "github:nasa/openmct#topic-core-refactor",
+    "plotly.js": "^1.49.4"
   },
   "dependencies": {}
 }

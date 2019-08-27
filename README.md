@@ -1,15 +1,11 @@
 # Index
 
-Basic starter plugin for Open MCT using webpack.
-
-Includes basic linting rules, jasmine + karma for testing.
+Basic starter plugin for Open MCT using Plotly. Has a simple new view type called "Plotly Plot"
 
 # Running
 
 ```
 npm install
-
-npm install nasa/openmct --no-save
 
 npm start
 ```

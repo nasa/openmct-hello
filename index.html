@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="node_modules/openmct/dist/openmct.css">
+    <script type="text/javascript" src="node_modules/plotly.js/dist/plotly.min.js"></script>
     <script type="text/javascript" src="node_modules/openmct/dist/openmct.js"></script>
-    <script type="text/javascript" src="dist/openmct-hello.js"></script>
+
   </head>
   <body>
-    <script>
+    <script type="module">
+      import PlotlyPlugin from './src/PlotlyPlugin.js';
+
+      const ONE_MINUTE = 5 * 60 * 1000;
+      const FIVE_MINUTES = 5 * 60 * 1000;
+
       openmct.setAssetPath("node_modules/openmct/dist");
-      openmct.install(new HelloPlugin.default());
       openmct.install(new openmct.plugins.LocalStorage());
-      openmct.install(new openmct.plugins.Espresso());
       openmct.install(new openmct.plugins.MyItems());
+      openmct.install(new openmct.plugins.Generator());
+      openmct.install(new openmct.plugins.UTCTimeSystem());
+      openmct.install(openmct.plugins.Conductor({
+            menuOptions: [
+                {
+                    name: "Fixed",
+                    timeSystem: 'utc',
+                    bounds: {
+                        start: Date.now() - FIVE_MINUTES,
+                        end: Date.now() + FIVE_MINUTES
+                    }
+                },
+                {
+                    name: "Realtime",
+                    timeSystem: 'utc',
+                    clock: 'local',
+                    clockOffsets: {
+                        start: - ONE_MINUTE,
+                        end: ONE_MINUTE
+                    }
+                }
+            ]
+        }));
+
+      openmct.install(new PlotlyPlugin());
+
       document.addEventListener('DOMContentLoaded', openmct.start.bind(openmct, document.body));
     </script>
   </body>

@@ -17,6 +17,7 @@ module.exports = function(config) {
     reporters: ['progress'],
     port: 9876,
     colors: true,
+    devtool: 'source-map',
     logLevel: config.LOG_INFO,
     autoWatch: false,
     browsers: ['ChromeHeadless'],
