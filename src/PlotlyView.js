@@ -39,8 +39,9 @@ export default class PlotlyView {
     }
 
     setBounds(bounds) {
+        this.bounds = bounds;
         //For now just log the start and end time
-        console.log(`Start bounds: ${new Date(bounds.start).toISOString()}, End bounds: ${new Date(bounds.end).toISOString()}`);
+        //console.log(`Start bounds: ${bounds.start} (${new Date(bounds.start).toISOString()}), End bounds: ${bounds.end} (${new Date(bounds.end).toISOString()})`);
         //These bounds can be used for populating the x-axis of the plot.
     }
 
@@ -51,7 +52,8 @@ export default class PlotlyView {
          * {"name":"SWG 1","utc":1567015798700,"yesterday":1566929398700,"sin":-0.7289686344389263,"cos":0.6845470984557944}
          * Where 'utc' is time in ms since Jan 1 1970 - ie JavaScript time.
          * */
-        console.log(JSON.stringify(data));
+        console.log(`UTC: ${data[0].utc}`);
+        //console.log(JSON.stringify(data));
     }
 
     subscribeToNewData() {
@@ -62,9 +64,10 @@ export default class PlotlyView {
         /**
          * UPDATE PLOTLY PLOT WITH REALTIME DATA HERE
          * */
-        console.log(JSON.stringify(datum));
+        //console.log(JSON.stringify(datum));
     }
 
     destroy() {
+        this.openmct.time.off('bounds', this.setBounds);
     }
 }
