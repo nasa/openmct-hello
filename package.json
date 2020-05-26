@@ -33,9 +33,9 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2",
     "karma-webpack": "^3.0.0",
+    "openmct": "github:nasa/openmct",
     "serve": "^9.4.0",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
-  },
-  "dependencies": {}
+  }
 }

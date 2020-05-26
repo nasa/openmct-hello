@@ -9,7 +9,5 @@ Includes basic linting rules, jasmine + karma for testing.
 ```
 npm install
 
-npm install nasa/openmct --no-save
-
 npm start
 ```
