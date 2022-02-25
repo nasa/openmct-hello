@@ -1,5 +1,5 @@
 /* eslint-env node */
-
+const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -19,8 +19,13 @@ module.exports = {
         transform: function (content) {
           return content.toString().replace(/^dist\//, '');
         }
+      },{
+        from: './node_modules/openmct/dist',
+        to: 'node_modules/openmct/dist'
       }]
-    })],
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     rules: [
       {
@@ -32,7 +37,6 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    static: ['./'],
-    hot: true,
+    hot: true
   }
 };
