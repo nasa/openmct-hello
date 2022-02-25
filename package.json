@@ -8,7 +8,7 @@
     "prepare": "webpack",
     "test": "karma start",
     "verify": "npm run lint && npm run test",
-    "start": "serve ."
+    "start": "NODE_ENV=development webpack serve"
   },
   "files": [
     "dist/**/*"
@@ -34,8 +34,12 @@
     "karma-jasmine": "^1.1.2",
     "karma-webpack": "^3.0.0",
     "openmct": "latest",
-    "serve": "^9.4.0",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "source-map-loader": "^3.0.1",
+    "webpack": "5.65.0",
+    "webpack-cli": "4.9.1",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^10.2.4"
   }
 }

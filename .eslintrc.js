@@ -7,5 +7,8 @@ module.exports = {
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": { "modules": true }
+  },
+  "rules": {
+    "indent": ["error", 2],
   }
 };

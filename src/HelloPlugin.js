@@ -1,8 +1,7 @@
-export default function HelloPlugin (options) {
-  var message = (options && options.hello) || 'Hello, world!';
-  return function (openmct) {
+export default function HelloPlugin () {
+  return function install (openmct) {
     openmct.on('start', function () {
-      window.alert(message);
+      window.alert('Hello, world!');
     });
   }
 }
