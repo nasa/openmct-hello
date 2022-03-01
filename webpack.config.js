@@ -22,6 +22,10 @@ module.exports = {
       },{
         from: './node_modules/openmct/dist',
         to: 'node_modules/openmct/dist'
+      }, {
+        from: './mars-weather.json'
+      }, {
+        from: './mars-weather-data.json'
       }]
     }),
     new webpack.HotModuleReplacementPlugin()
@@ -37,6 +41,7 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    hot: true
+    hot: true,
+    port: 8081
   }
 };

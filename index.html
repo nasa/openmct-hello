@@ -8,36 +8,43 @@
         const ONE_SECOND = 1000;
         const THIRTY_SECONDS = 30 * ONE_SECOND;
         const ONE_MINUTE = 60 * ONE_SECOND;
-        const THIRTY_MINUTES = 30 * ONE_MINUTE;
+        const FIVE_MINUTES = 5 * ONE_MINUTE;
 
         openmct.setAssetPath("node_modules/openmct/dist");
-        openmct.install(new openmct.plugins.Espresso());
-        openmct.install(new openmct.plugins.MyItems());
-        openmct.install(new openmct.plugins.LocalStorage());
+        openmct.install(openmct.plugins.Espresso());
+        openmct.install(openmct.plugins.example.Generator());
+        openmct.install(openmct.plugins.MyItems());
+        openmct.install(openmct.plugins.LocalStorage());
         openmct.install(openmct.plugins.UTCTimeSystem());
+        openmct.install(openmct.plugins.Timeline());
+        openmct.install(openmct.plugins.DisplayLayout({
+            showAsView: ['example.imagery']
+        }));
+        openmct.install(openmct.plugins.example.ExampleImagery());
         openmct.install(openmct.plugins.Conductor({
           menuOptions: [
-            {
-              name: "Fixed",
-              timeSystem: 'utc',
-              bounds: {
-                start: Date.now() - THIRTY_MINUTES,
-                end: Date.now()
-              }
-            },
-            {
+          {
               name: "Realtime",
               timeSystem: 'utc',
               clock: 'local',
               clockOffsets: {
-                start: - THIRTY_MINUTES,
-                end: THIRTY_SECONDS
+                start: - FIVE_MINUTES,
+                end: 0
+              }
+            },
+            {
+              name: "Fixed",
+              timeSystem: 'utc',
+              bounds: {
+                start: Date.now() - FIVE_MINUTES,
+                end: Date.now()
               }
             }
           ]
         }));
-
-        openmct.install(new HelloPlugin.default());
+        openmct.install(openmct.plugins.PlanLayout());
+        openmct.install(openmct.plugins.StaticRootPlugin('msl', './mars-weather.json'));
+        openmct.install(HelloPlugin.default());
 
         openmct.start(document.body)
       });

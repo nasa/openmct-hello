@@ -1,0 +1,43 @@
+{
+    "openmct": {
+        "msl:weather": {
+            "identifier": {
+                "namespace": "msl",
+                "key": "weather"
+            },
+            "name": "Mars Weather",
+            "type": "folder",
+            "composition": [
+                "msl:68bb7745-a3f9-4f3d-9a24-6265d01d73a3"
+            ]
+        },
+        "msl:68bb7745-a3f9-4f3d-9a24-6265d01d73a3": {
+            "identifier": {
+                "namespace": "msl",
+                "key": "68bb7745-a3f9-4f3d-9a24-6265d01d73a3"
+            },
+            "name": "Minimum Temperature",
+            "type": "mars-weather-telemetry",
+            "telemetry": {
+                "values": [
+                    {
+                        "key": "utc",
+                        "format": "utc",
+                        "hints": {
+                            "domain": 1
+                        }
+                    },
+                    {
+                        "key": "min_temp",
+                        "format": "number",
+                        "hints": {
+                            "range": 1
+                        }
+                    }
+                ]
+            },
+            "location": "msl:weather"
+        }
+    },
+    "rootId": "msl:weather"
+}
