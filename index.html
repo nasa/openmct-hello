@@ -17,6 +17,7 @@
         openmct.install(openmct.plugins.LocalStorage());
         openmct.install(openmct.plugins.UTCTimeSystem());
         openmct.install(openmct.plugins.Timeline());
+        openmct.install(openmct.plugins.Clock());
         openmct.install(openmct.plugins.DisplayLayout({
             showAsView: ['example.imagery']
         }));
@@ -28,7 +29,7 @@
               timeSystem: 'utc',
               clock: 'local',
               clockOffsets: {
-                start: - FIVE_MINUTES,
+                start: - ONE_MINUTE,
                 end: 0
               }
             },
@@ -43,7 +44,6 @@
           ]
         }));
         openmct.install(openmct.plugins.PlanLayout());
-        openmct.install(openmct.plugins.StaticRootPlugin('msl', './mars-weather.json'));
         openmct.install(HelloPlugin.default());
 
         openmct.start(document.body)
