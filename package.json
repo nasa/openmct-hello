@@ -2,13 +2,13 @@
   "name": "openmct-hello",
   "version": "4.0.0-next",
   "description": "Hello, world Open MCT plugin example.",
-  "main": "./src/HelloPlugin.js",
+  "main": "./dist/HelloPlugin.js",
   "scripts": {
     "lint": "eslint src",
-    "prepare": "webpack",
+    "prepare": "webpack --config webpack.prod.config.js",
     "test": "karma start",
     "verify": "npm run lint && npm run test",
-    "start": "webpack serve"
+    "start": "webpack serve --config webpack.dev.config.js"
   },
   "files": [
     "dist/**/*"
@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/nasa/openmct-hello#readme",
   "devDependencies": {
-    "clean-webpack-plugin": "4.0.0",
     "copy-webpack-plugin": "12.0.2",
     "eslint": "8.57.0",
     "html-webpack-plugin": "5.6.0",
@@ -38,6 +37,7 @@
     "vue-loader": "17.4.2",
     "webpack": "5.91.0",
     "webpack-cli": "5.1.4",
-    "webpack-dev-server": "5.0.4"
+    "webpack-dev-server": "5.0.4",
+    "webpack-merge": "^5.10.0"
   }
 }
