@@ -16,15 +16,18 @@ module.exports = {
     },
     clean: true,
   },
-    module: {
+  module: {
     rules: [
       {
         test: /\.vue$/,
         loader: "vue-loader",
-      }
+      },
+      {
+        test: /\.js$/,
+        use: ["source-map-loader"],
+        enforce: "pre",
+      },
     ],
   },
-  plugins: [
-    new VueLoaderPlugin()
-  ],
+  plugins: [new VueLoaderPlugin()],
 };
