@@ -1,66 +1,56 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader').VueLoaderPlugin;
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader").VueLoaderPlugin;
+const path = require("path");
 
 module.exports = {
-  mode: 'development', // Set the mode to production to enable optimizations
-  entry: './src/index.js', // Update the entry point to use the modern syntax
-  devtool: 'source-map',
+  mode: "development",
+  entry: "./src/index.js",
+  devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, 'dist'), // Use path.resolve for better path handling
-    filename: 'openmct-hello.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "openmct-hello.js",
     library: {
-      name: 'HelloPlugin',
-      type: 'umd', // Use the modern library target syntax
+      name: "HelloPlugin",
+      type: "umd",
     },
-    clean: true, // Clean the output directory before emit
+    clean: true,
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      },
+        loader: "vue-loader",
+      }
     ],
   },
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: 'index.html', // Automatically generate an index.html file with your bundle
+      template: "index.html",
     }),
-    new CleanWebpackPlugin(), // Clean the /dist folder before each build
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: path.resolve(__dirname, 'node_modules/openmct/dist/**/*'), to: path.resolve(__dirname, 'dist'), context: 'node_modules/openmct/dist',
+        {
+          from: path.resolve(__dirname, "node_modules/openmct/dist/**/*"),
+          to: path.resolve(__dirname, "dist"),
+          context: "node_modules/openmct/dist",
           globOptions: {
             ignore: [
-              '**/index.html', // This pattern ignores index.html
+              "**/index.html",
             ],
-            
           },
-        }
-      ]
+        },
+      ],
     }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist') // Assuming 'dist' is where your intended index.html resides
+      directory: path.join(__dirname, "dist"),
     },
     compress: true,
     port: 9000,
   },
-  // Since Webpack 5, the optimization of chunk splitting is enabled by default in production mode
 };
-

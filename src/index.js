@@ -1,5 +1,5 @@
 import installHelloPlugin from './HelloPlugin';
-const openmct = window.openmct;
+import openmct from 'openmct';
 
 (() => {
     const THIRTY_MINUTES = 30 * 60 * 1000;
