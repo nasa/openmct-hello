@@ -15,7 +15,7 @@ export default class SimpleLADViewProvider {
     return domainObject.type === 'simple-lad';
   }
 
-  canEdit(_domainObject) {
+  canEdit() {
     return false;
   }
 

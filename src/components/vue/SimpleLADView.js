@@ -10,7 +10,7 @@ export default class SimpleLADView {
   #component;
   /** @type {import('openmct').DomainObject} */
   #domainObject;
-  /** @type {string} */
+  /** @type {Array<import('openmct').DomainObject>} */
   #objectPath;
   constructor(openmct, options = {}) {
     this.#openmct = openmct;
@@ -22,6 +22,7 @@ export default class SimpleLADView {
   show(element) {
     this.#app = createApp(SimpleLAD);
     this.#app.provide('openmct', this.#openmct);
+    this.#app.provide('objectPath', this.#objectPath);
     this.#app.provide('domainObject', this.#domainObject);
     this.#component = this.#app.mount(element);
   }
