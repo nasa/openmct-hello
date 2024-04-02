@@ -3,88 +3,68 @@
     <table>
       <thead>
         <tr>
-          <th>Parameter</th>
+          <th>Parameter Name</th>
           <th>Value</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>{{ name }}</td>
-          <td>{{ value }}</td>
-        </tr>
+        <SimpleLADRow
+          v-for="parameter in parameters"
+          :domain-object="parameter"
+        />
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
+import SimpleLADRow from "./SimpleLADRow.vue";
+
 export default {
-  inject: ["openmct", "domainObject"],
+  inject: ["openmct", "domainObject", "objectPath"],
+  provide() {
+    return {
+      timeContext: this.openmct.time.getContextForView(this.objectPath),
+    };
+  },
+  components: {
+    SimpleLADRow,
+  },
   data() {
     return {
       datum: null,
+      parameters: []
     };
   },
-  computed: {
-    value() {
-      return this.datum ? this.formats[this.valueKey].format(this.datum) : '---';
-    },
-    name() {
-      return this.datum?.name ?? '---';
-    }
-  },
-  mounted() {
-    const compositionCollection = this.openmct.composition.get(
+  created() {
+    this.compositionCollection = this.openmct.composition.get(
       this.domainObject
     );
-    compositionCollection.on("add", this.addTelemetrySource);
-    compositionCollection.on("remove", this.removeTelemetrySource);
-    compositionCollection.load();
-    // Subscribe to telemetry data from OpenMCT
-    this.subscription = this.openmct.telemetry.subscribe(
-      this.domainObject,
-      this.handleTelemetryData
-    );
+    this.compositionCollection.on("add", this.addTelemetrySource);
+    this.compositionCollection.on("remove", this.removeTelemetrySource);
+  },
+  mounted() {
+    this.compositionCollection.load();
   },
   beforeUnmount() {
-    // Unsubscribe from telemetry data when the component is destroyed
-    if (this.subscription) {
-      this.subscription();
-    }
+    this.compositionCollection.off("add", this.addTelemetrySource);
+    this.compositionCollection.off("remove", this.removeTelemetrySource);
   },
   methods: {
     addTelemetrySource(domainObject) {
-      
-      this.metadata = this.openmct.telemetry.getMetadata(domainObject);
-      this.formats = this.openmct.telemetry.getFormatMap(this.metadata);
-      if (this.metadata) {
-        this.valueMetadata = this.metadata.valuesForHints(["range"])[0];
-      }
-      this.valueKey = this.valueMetadata ? this.valueMetadata.key : undefined;
-
-      this.subscription = this.openmct.telemetry.subscribe(
-        domainObject,
-        this.handleTelemetryData
-      );
+      this.parameters.push(domainObject);
+    },
+    resetValue() {
+      this.datum = null;
     },
     removeTelemetrySource(domainObject) {
-      this.subscription();
-    },
-    handleTelemetryData(datum) {
-      // Update the LAD data with the received telemetry data
-      this.datum = datum;
-    },
-    getStatus(value, limit) {
-      // Determine the status based on the value and limit
-      if (value > limit) {
-        return "Out of Limit";
-      } else {
-        return "Normal";
-      }
-    },
-    getStatusClass(status) {
-      // Return the CSS class based on the status
-      return status === "Out of Limit" ? "out-of-limit" : "normal";
+      this.parameters = this.parameters.filter(
+        (item) =>
+          !this.openmct.objects.areIdsEqual(
+            item.identifier,
+            domainObject.identifier
+          )
+      );
     },
   },
 };
