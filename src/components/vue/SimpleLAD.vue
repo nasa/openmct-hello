@@ -57,12 +57,12 @@ export default {
     resetValue() {
       this.datum = null;
     },
-    removeTelemetrySource(domainObject) {
+    removeTelemetrySource(identifier) {
       this.parameters = this.parameters.filter(
-        (item) =>
+        (domainObject) =>
           !this.openmct.objects.areIdsEqual(
-            item.identifier,
-            domainObject.identifier
+            domainObject.identifier,
+            identifier
           )
       );
     },
