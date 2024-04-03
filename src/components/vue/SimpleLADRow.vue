@@ -45,23 +45,7 @@ export default {
     },
     name() {
       return this.domainObject?.name ?? "---";
-    },
-    // style() {
-    //   if (!this.valueMetadata) {
-    //     return {
-    //       backgroundColor: "white",
-    //     };
-    //   }
-    //   if (this.value > this.valueMetadata.max) {
-    //     return {
-    //       backgroundColor: "red",
-    //     };
-    //   } else {
-    //     return {
-    //       backgroundColor: "green",
-    //     };
-    //   }
-    // },
+    }
   },
   created() {
     this.metadata = this.openmct.telemetry.getMetadata(this.domainObject);
