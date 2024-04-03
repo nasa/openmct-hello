@@ -1,5 +1,5 @@
 <template>
-  <div class="lad-table">
+  <div class="c-table c-lad-table">
     <table>
       <thead>
         <tr>

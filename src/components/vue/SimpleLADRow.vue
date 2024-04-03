@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td :style="centerTextStyle">{{ name }}</td>
-    <td>{{ value }}</td>
+    <td :class="valueClasses">{{ value }}</td>
   </tr>
 </template>
 
@@ -24,6 +24,19 @@ export default {
       return {
         textAlign: "center",
       };
+    },
+    valueClasses() {
+      const classes = [];
+
+      if (this.datum) {
+        const limit = this.limitEvaluator.evaluate(this.datum, this.valueMetadata);
+
+        if (limit) {
+          classes.push(limit.cssClass);
+        }
+      }
+
+      return classes;
     },
     value() {
       return this.datum
@@ -50,15 +63,19 @@ export default {
     //   }
     // },
   },
-  mounted() {
+  created() {
     this.metadata = this.openmct.telemetry.getMetadata(this.domainObject);
     this.formats = this.openmct.telemetry.getFormatMap(this.metadata);
     if (this.metadata) {
       this.valueMetadata = this.metadata.valuesForHints(["range"])[0];
     }
     this.valueKey = this.valueMetadata ? this.valueMetadata.key : undefined;
+    this.limitEvaluator = this.openmct.telemetry.limitEvaluator(this.domainObject);
 
     this.addTelemetryCollection();
+  },
+  mounted() {
+    this.telemetryCollection.load();
   },
   methods: {
     addTelemetryCollection() {
@@ -75,7 +92,6 @@ export default {
       );
       this.telemetryCollection.on("add", this.setLatestValue);
       this.telemetryCollection.on("clear", this.resetValue);
-      this.telemetryCollection.load();
     },
     removeTelemetryCollection() {
       if (!this.telemetryCollection) return;
