@@ -6,6 +6,8 @@
 </template>
 
 <script>
+const NO_DATA_VALUE = "---";
+
 export default {
   inject: ["openmct", "timeContext"],
   props: {
@@ -25,6 +27,11 @@ export default {
         textAlign: "center",
       };
     },
+    /**
+     * The classes for the value cell. Applies different stylings based
+     * on the configured limits.
+     * @returns {Array} The classes for the value.
+     */
     valueClasses() {
       const classes = [];
 
@@ -41,13 +48,17 @@ export default {
 
       return classes;
     },
+    /**
+     * The formatted value of the datum.
+     * @returns {*} The formatted value of the datum.
+     */
     value() {
       return this.datum
         ? this.formats[this.valueKey].format(this.datum)
-        : "---";
+        : NO_DATA_VALUE;
     },
     name() {
-      return this.domainObject?.name ?? "---";
+      return this.domainObject?.name ?? NO_DATA_VALUE;
     },
   },
   created() {
@@ -69,6 +80,9 @@ export default {
     // Add the telemetry collection and set up the event listeners
     this.addTelemetryCollection();
   },
+  /**
+   * Load the telemetry collection.
+   */
   mounted() {
     this.telemetryCollection.load();
   },
