@@ -2,7 +2,7 @@
 import SimpleLADViewProvider from './components/vue/SimpleLADViewProvider.js';
 
 /**
- * A plugin for the OpenMCT framework that adds a simple table and LAD view.
+ * A plugin for the OpenMCT framework that adds a simple LAD view.
  */
 export default (options = {}) => {
   /**
