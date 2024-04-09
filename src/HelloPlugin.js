@@ -1,10 +1,14 @@
 
 import SimpleLADViewProvider from './components/vue/SimpleLADViewProvider.js';
 
+/**
+ * A plugin for the OpenMCT framework that adds a simple table and LAD view.
+ */
 export default (options = {}) => {
   /**
-   * 
-   * @param {import('openmct').OpenMCT} openmct the openmct api instance
+   * The main entry point for the plugin. Defines actions required to install
+   * the plugin.
+   * @param {OpenMCT} openmct the openmct api instance
    */
   return (openmct) => {
     openmct.objectViews.addProvider(new SimpleLADViewProvider(openmct));
@@ -20,3 +24,8 @@ export default (options = {}) => {
     });
   }
 }
+
+/**
+ * @typedef {import('openmct').OpenMCT} OpenMCT
+ */
+

@@ -5,10 +5,10 @@
   "main": "./dist/HelloPlugin.js",
   "scripts": {
     "lint": "eslint src",
-    "prepare": "webpack --config webpack.prod.config.js",
+    "prepare": "webpack --config .webpack/webpack.prod.js",
     "test": "karma start",
     "verify": "npm run lint && npm run test",
-    "start": "webpack serve --config webpack.dev.config.js"
+    "start": "webpack serve --config .webpack/webpack.dev.js"
   },
   "files": [
     "dist/**/*"
