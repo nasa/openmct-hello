@@ -8,6 +8,7 @@ This is a template for developing plugins for [Open MCT](https://github.com/nasa
 - [Examples](#examples)
   - [Simple LAD Table](#simple-lad-table)
   - [Simple Telemetry Table (WIP)](#simple-telemetry-table-wip)
+- [TODO](#todo)
 
 ## Setup
 
@@ -28,3 +29,9 @@ A simplified version of a LAD Table that displays the latest value for a given p
 
 A work-in-progress example showing how to use `TelemetryCollection` for requesting historical data and subscribing to the latest parameter values.
 
+## TODO
+
+- [x] - Example plugin for displaying realtime (latest) data.
+- [ ] - Example plugin to display historical data.
+- [ ] - Updated guidance for unit testing.
+- [ ] - Demonstrate usage of `openmct-e2e` for testing.
