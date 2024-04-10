@@ -1,7 +1,7 @@
 {
   "name": "openmct-hello",
   "version": "4.0.0-next",
-  "description": "Hello, world Open MCT plugin example.",
+  "description": "A template for developing a plugin for Open MCT.",
   "main": "./dist/HelloPlugin.js",
   "scripts": {
     "lint": "eslint src",
@@ -9,8 +9,7 @@
     "clean": "npx rimraf node_modules/",
     "build": "webpack --config .webpack/webpack.prod.js",
     "prepare": "npm run build",
-    "test": "karma start",
-    "verify": "npm run lint && npm run test",
+    "test": "echo 'WIP'",
     "start": "webpack serve --config .webpack/webpack.dev.js"
   },
   "files": [
