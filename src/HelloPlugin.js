@@ -4,6 +4,7 @@ import SimpleLADViewProvider from './components/vue/SimpleLADViewProvider.js';
 /**
  * A plugin for the OpenMCT framework that adds a simple LAD view.
  */
+// eslint-disable-next-line no-unused-vars
 export default (options = {}) => {
   /**
    * The main entry point for the plugin. Defines actions required to install
