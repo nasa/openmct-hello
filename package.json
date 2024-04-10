@@ -1,14 +1,16 @@
 {
   "name": "openmct-hello",
-  "version": "1.0.0",
-  "description": "Hello, world Open MCT plugin example.",
-  "main": "index.js",
+  "version": "4.0.0-next",
+  "description": "A template for developing a plugin for Open MCT.",
+  "main": "./dist/HelloPlugin.js",
   "scripts": {
     "lint": "eslint src",
-    "prepare": "webpack",
-    "test": "karma start",
-    "verify": "npm run lint && npm run test",
-    "start": "serve ."
+    "lint:fix": "eslint --fix src",
+    "clean": "npx rimraf node_modules/",
+    "build": "webpack --config .webpack/webpack.prod.js",
+    "prepare": "npm run build",
+    "test": "echo 'WIP'",
+    "start": "webpack serve --config .webpack/webpack.dev.js"
   },
   "files": [
     "dist/**/*"
@@ -27,15 +29,24 @@
   },
   "homepage": "https://github.com/nasa/openmct-hello#readme",
   "devDependencies": {
-    "eslint": "^5.3.0",
-    "jasmine-core": "^3.1.0",
-    "karma": "^2.0.5",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-jasmine": "^1.1.2",
-    "karma-webpack": "^3.0.0",
-    "openmct": "latest",
-    "serve": "^9.4.0",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "copy-webpack-plugin": "12.0.2",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.1.3",
+    "eslint-plugin-simple-import-sort": "12.0.0",
+    "eslint-plugin-unicorn": "52.0.0",
+    "eslint-plugin-vue": "9.24.1",
+    "html-webpack-plugin": "5.6.0",
+    "openmct": "nasa/openmct",
+    "prettier": "3.2.5",
+    "prettier-eslint": "16.3.0",
+    "rimraf": "^5.0.5",
+    "source-map-loader": "5.0.0",
+    "vue": "3.4.21",
+    "vue-loader": "17.4.2",
+    "webpack": "5.91.0",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "5.0.4",
+    "webpack-merge": "^5.10.0"
   }
 }
