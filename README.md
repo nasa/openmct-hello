@@ -1,27 +1,30 @@
 # Open MCT Plugin Template
 
-This is a template for developing plugin(s) for [Open MCT](https://github.com/nasa/openmct). We plan to include example plugins that show basic and intermediate usage of the Open MCT API to request and display data. This is a work in progress, so please stay tuned for updates.
+This is a template for developing plugins for [Open MCT](https://github.com/nasa/openmct). It includes example plugins demonstrating basic usage of the Open MCT API for requesting, subscribing to, and displaying data. This document is a work in progress and will be updated with more examples and guidance.
+
+## Table of Contents
+
+- [Setup](#setup)
+- [Examples](#examples)
+  - [Simple LAD Table](#simple-lad-table)
+  - [Simple Telemetry Table (WIP)](#simple-telemetry-table-wip)
 
 ## Setup
 
-- [Install nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-- Open a terminal to the root of the project and run `nvm install` to install the correct node version as specified in the `.nvmrc` file.
-- `nvm use` to switch to the correct node version (if already installed).
-- `npm install`
-- Start the development server: `npm start`
-- Build for production: `npm run build`
+1. Ensure [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) is installed.
+2. Open a terminal at the project root and run `nvm install` to install the node version specified in `.nvmrc`.
+3. Use `nvm use` to switch to the correct node version.
+4. Install dependencies with `npm install`.
+5. Start the development server with `npm start`.
+6. To build for production, run `npm run build`.
 
 ## Examples
 
 ### Simple LAD Table
 
-This is a simplified version of a LAD Table (Latest Available Data Table). It will display the latest value as a row in the table for a given parameter. It demonstrates usage of the `TelemetryCollection` to request and subscribe to the latest value for a given parameter. It also demonstrates usage of the `CompositionCollection` to register handlers for when a parameter is added or removed from the table.
-
-#### View/ViewProvider Implementations
-
-- [x] Vue 3
-- [ ] React (WIP)
+A simplified version of a LAD Table that displays the latest value for a given parameter. Demonstrates how to use `TelemetryCollection` for data subscription and `CompositionCollection` for parameter management in a table.
 
 ### Simple Telemetry Table (WIP)
 
-This is a simplified version of a Telemetry Table. It will demonstrate usage of the `TelemetryCollection` to request historical data and to subscribe to the latest value for a given parameter.
+A work-in-progress example showing how to use `TelemetryCollection` for requesting historical data and subscribing to the latest parameter values.
+
