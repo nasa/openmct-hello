@@ -6,7 +6,7 @@ const path = require("path");
 /** @type {import('webpack').Configuration} */
 module.exports = merge(common, {
   mode: "development",
-  devtool: 'eval-source-map',
+  devtool: "eval-source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: "index.html",
@@ -14,14 +14,13 @@ module.exports = merge(common, {
   ],
   devServer: {
     client: {
-      overlay: false
+      overlay: false,
     },
     static: [
-      {directory: path.join(__dirname, "../dist")},
-      {directory: path.join(__dirname, "../node_modules/openmct/dist")},
+      { directory: path.join(__dirname, "../dist") },
+      { directory: path.join(__dirname, "../node_modules/openmct/dist") },
     ],
     compress: true,
     port: 9000,
-  }
+  },
 });
-

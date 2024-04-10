@@ -1,26 +1,24 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine'],
-    files: [
-      'src/**/*Spec.js'
-    ],
+    basePath: "",
+    frameworks: ["jasmine"],
+    files: ["src/**/*Spec.js"],
     preprocessors: {
-      'src/**/*.js': ['webpack']
+      "src/**/*.js": ["webpack"],
     },
     babelPreprocessor: {
       options: {
-        presets: ['env'],
-        sourceMap: 'inline'
-      }
+        presets: ["env"],
+        sourceMap: "inline",
+      },
     },
-    reporters: ['progress'],
+    reporters: ["progress"],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: false,
-    browsers: ['ChromeHeadless'],
+    browsers: ["ChromeHeadless"],
     singleRun: true,
-    concurrency: Infinity
-  })
-}
+    concurrency: Infinity,
+  });
+};

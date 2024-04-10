@@ -115,7 +115,9 @@ export default {
      * Remove the telemetry collection and the event listeners.
      */
     removeTelemetryCollection() {
-      if (!this.telemetryCollection) return;
+      if (!this.telemetryCollection) {
+        return;
+      }
       this.telemetryCollection.off("add", this.setLatestValue);
       this.telemetryCollection.off("clear", this.resetValue);
       this.telemetryCollection.destroy();

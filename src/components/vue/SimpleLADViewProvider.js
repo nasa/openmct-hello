@@ -1,4 +1,4 @@
-import SimpleLADView from './SimpleLADView.js';
+import SimpleLADView from "./SimpleLADView.js";
 
 /**
  * A view provider for the SimpleLAD object.
@@ -8,7 +8,7 @@ export default class SimpleLADViewProvider {
   #openmct;
   /**
    * Constructs a new SimpleLADViewProvider.
-   * @param {OpenMCT} openmct 
+   * @param {OpenMCT} openmct
    */
   constructor(openmct) {
     this.#openmct = openmct;
@@ -19,16 +19,16 @@ export default class SimpleLADViewProvider {
    * @returns {string}
    */
   get key() {
-    return 'simple-lad';
+    return "simple-lad";
   }
 
   /**
    * Returns whether the SimpleLAD object can be viewed.
-   * @param {DomainObject} domainObject 
+   * @param {DomainObject} domainObject
    * @returns {boolean}
    */
   canView(domainObject) {
-    return domainObject.type === 'simple-lad';
+    return domainObject.type === "simple-lad";
   }
 
   /**
@@ -41,8 +41,8 @@ export default class SimpleLADViewProvider {
 
   /**
    * Creates a new SimpleLADView.
-   * @param {DomainObject} domainObject 
-   * @param {ObjectPath} objectPath 
+   * @param {DomainObject} domainObject
+   * @param {ObjectPath} objectPath
    * @returns {SimpleLADView}
    */
   view(domainObject, objectPath) {
@@ -63,4 +63,3 @@ export default class SimpleLADViewProvider {
  * @typedef {import('openmct').DomainObject} DomainObject
  * @typedef {Array<DomainObject>} ObjectPath
  */
-

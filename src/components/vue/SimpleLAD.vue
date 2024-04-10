@@ -37,20 +37,20 @@ export default {
     };
   },
   created() {
-    /** 
+    /**
      * In the created() hook, we can perform any actions not dependent on the DOM.
      * Typically, this is where we would set up event listeners for changes to the domain object.
      * Here we are setting up event listeners for changes to the composition collection.
      * When a telemetry source is added or removed, we update our parameters array.
      */
     this.compositionCollection = this.openmct.composition.get(
-      this.domainObject
+      this.domainObject,
     );
     this.compositionCollection.on("add", this.addTelemetrySource);
     this.compositionCollection.on("remove", this.removeTelemetrySource);
   },
   mounted() {
-    /** 
+    /**
      * In the mounted() hook, we can perform any actions that depend on the DOM. Since loading the
      * composition collection will potentially trigger a change to the parameters array, which will
      * trigger a change to the DOM, we do it here.
@@ -80,7 +80,10 @@ export default {
     removeTelemetrySource(identifier) {
       this.parameters = this.parameters.filter(
         (domainObject) =>
-          !this.openmct.objects.areIdsEqual(domainObject.identifier, identifier)
+          !this.openmct.objects.areIdsEqual(
+            domainObject.identifier,
+            identifier,
+          ),
       );
     },
     /**
@@ -88,7 +91,7 @@ export default {
      */
     resetValue() {
       this.datum = null;
-    }
+    },
   },
 };
 </script>
