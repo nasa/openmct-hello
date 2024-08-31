@@ -1,20 +1,20 @@
-import HelloPlugin from './HelloPlugin';
+import HelloPlugin from "./HelloPlugin";
 
-describe('HelloPlugin', function () {
+describe("HelloPlugin", function () {
   var openmct;
   var plugin;
 
   beforeEach(function () {
-    openmct = jasmine.createSpyObj('openmct', ['on']);
+    openmct = jasmine.createSpyObj("openmct", ["on"]);
     plugin = new HelloPlugin();
   });
 
-  it('is a function', function () {
+  it("is a function", function () {
     expect(plugin).toEqual(jasmine.any(Function));
   });
 
-  it('listens for start on install', function () {
+  it("listens for start on install", function () {
     plugin(openmct);
-    expect(openmct.on).toHaveBeenCalledWith('start', jasmine.any(Function));
+    expect(openmct.on).toHaveBeenCalledWith("start", jasmine.any(Function));
   });
 });
