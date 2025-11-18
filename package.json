@@ -40,13 +40,13 @@
     "openmct": "nasa/openmct",
     "prettier": "3.2.5",
     "prettier-eslint": "16.3.0",
-    "rimraf": "^5.0.5",
+    "rimraf": "^6.1.0",
     "source-map-loader": "5.0.0",
     "vue": "3.4.21",
     "vue-loader": "17.4.2",
     "webpack": "5.94.0",
     "webpack-cli": "5.1.4",
-    "webpack-dev-server": "5.0.4",
+    "webpack-dev-server": "5.2.2",
     "webpack-merge": "^5.10.0"
   }
 }
